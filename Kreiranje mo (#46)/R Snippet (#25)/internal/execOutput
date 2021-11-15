@@ -1,0 +1,8 @@
+       book_id
+user_id  1  2  3  4  5
+    4   NA NA NA NA NA
+    52  NA NA NA NA NA
+    59  NA NA NA NA NA
+    152 NA NA NA NA NA
+    177 NA NA NA NA NA
+[1] 2254 9911

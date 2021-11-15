@@ -1,0 +1,26 @@
+data.table 1.14.0 using 2 threads (see ?getDTthreads).  Latest news: r-datatable.com
+
+Attaching package: 'dplyr'
+
+The following objects are masked from 'package:data.table':
+
+    between, first, last
+
+The following objects are masked from 'package:arules':
+
+    intersect, recode, setdiff, setequal, union
+
+The following objects are masked from 'package:stats':
+
+    filter, lag
+
+The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union
+
+
+Attaching package: 'tidyr'
+
+The following objects are masked from 'package:Matrix':
+
+    expand, pack, unpack

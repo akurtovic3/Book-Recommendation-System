@@ -1,0 +1,17 @@
+book_id user_id  rating 
+      0       0       0 
+book_id user_id  rating 
+      0       0       0 
+        book_id user_id rating   N
+     1:       1     314      5 181
+     2:       1     439      3 175
+     3:       1     588      5 186
+     4:       1    1169      4 187
+     5:       1    1185      4 190
+    ---                           
+979474:   10000   48386      5  18
+979475:   10000   49007      4  24
+979476:   10000   49383      5  14
+979477:   10000   50124      5  17
+979478:   10000   51328      1   9
+Number of ratings (before):  962814Number of ratings (after):  47675

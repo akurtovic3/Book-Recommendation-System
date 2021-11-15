@@ -1,0 +1,7 @@
+    book_id         user_id          rating      
+ Min.   :    1   Min.   :    4   Min.   :0.0000  
+ 1st Qu.: 2518   1st Qu.:13906   1st Qu.:0.5000  
+ Median : 4913   Median :25703   Median :0.7500  
+ Mean   : 4953   Mean   :26164   Mean   :0.7171  
+ 3rd Qu.: 7378   3rd Qu.:39248   3rd Qu.:1.0000  
+ Max.   :10000   Max.   :53420   Max.   :1.0000  

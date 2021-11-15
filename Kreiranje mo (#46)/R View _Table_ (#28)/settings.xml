@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns="http://www.knime.org/2008/09/XMLConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.knime.org/2008/09/XMLConfig http://www.knime.org/XMLConfig_2008_09.xsd" key="settings.xml">
+<entry key="node_file" type="xstring" value="settings.xml"/>
+<config key="flow_stack"/>
+<config key="internal_node_subsettings">
+<entry key="memory_policy" type="xstring" value="CacheSmallInMemory"/>
+</config>
+<config key="model">
+<entry key="Image width" type="xint" value="640"/>
+<entry key="Image height" type="xint" value="640"/>
+<entry key="Image resolution" type="xstring" value="NA"/>
+<entry key="Image background color" type="xstring" value="#ffffff"/>
+<entry key="Text point size" type="xint" value="12"/>
+<config key="R settings">
+<entry key="script" type="xstring" value="matricaRatingsa&lt;-as.matrix(knime.in)%%00010%%00010library(recommenderlab)%%00010library(dplyr)%%00010library(tidyr)%%00010library(ggplot2)%%00010library(Matrix)%%00010%%00010matricaRatingsa[is.na(matricaRatingsa)] &lt;- 0%%00010rasprsenaMatricaRatingsa &lt;- as(matricaRatingsa, &quot;sparseMatrix&quot;)%%00010%%00010%%00010real_ratings &lt;- new(&quot;realRatingMatrix&quot;, data = rasprsenaMatricaRatingsa)%%00010scheme &lt;- evaluationScheme(real_ratings[1:500,], method = &quot;cross-validation&quot;, k = 10, given = -1, goodRating = 5)%%00010algorithms &lt;- list(&quot;random&quot; = list(name = &quot;RANDOM&quot;, param = NULL),%%00010                   &quot;UBCF_05&quot; = list(name = &quot;UBCF&quot;, param = list(nn = 5)),%%00010                   &quot;UBCF_10&quot; = list(name = &quot;UBCF&quot;, param = list(nn = 10)),%%00010                   &quot;UBCF_30&quot; = list(name = &quot;UBCF&quot;, param = list(nn = 30)),                   %%00010                   &quot;UBCF_50&quot; = list(name = &quot;UBCF&quot;, param = list(nn = 50))%%00010                   )%%00010# evaluate the alogrithms with the given scheme            %%00010results &lt;- evaluate(scheme, algorithms, type = &quot;ratings&quot;)%%00010tmp &lt;- lapply(results, function(x) slot(x, &quot;results&quot;))%%00010res &lt;- tmp %&gt;% %%00010  lapply(function(x) unlist(lapply(x, function(x) unlist(x@cm[ ,&quot;RMSE&quot;])))) %&gt;% %%00010  as.data.frame() %&gt;% %%00010  gather(key = &quot;Algorithm&quot;, value = &quot;RMSE&quot;)%%00010%%00010res %&gt;% %%00010  ggplot(aes(Algorithm, RMSE, fill = Algorithm)) +%%00010  geom_bar(stat = &quot;summary&quot;) + geom_errorbar(stat = &quot;summary&quot;, width = 0.3, size = 0.8) +%%00010  coord_cartesian(ylim = c(0.6, 1.3)) + guides(fill = FALSE)"/>
+<entry key="templateUUID" type="xstring" isnull="true" value=""/>
+<entry key="version" type="xstring" value="version 1.x"/>
+<entry key="Output non numbers (NaN, Inf, -Inf) as missing cells" type="xboolean" value="false"/>
+<entry key="sendRowNames" type="xboolean" value="true"/>
+<entry key="sendBatchSize" type="xint" value="10000"/>
+<entry key="knimeInType" type="xstring" value="data.frame"/>
+<entry key="overwriteRHome" type="xboolean" value="true"/>
+<entry key="rHome" type="xstring" value="E:\R-4.0.5"/>
+</config>
+<entry key="Image type" type="xstring" value="PNG"/>
+</config>
+<config key="nodeAnnotation">
+<entry key="text" type="xstring" value="Evaluacija"/>
+<entry key="bgcolor" type="xint" value="16777215"/>
+<entry key="x-coordinate" type="xint" value="487"/>
+<entry key="y-coordinate" type="xint" value="419"/>
+<entry key="width" type="xint" value="106"/>
+<entry key="height" type="xint" value="15"/>
+<entry key="alignment" type="xstring" value="CENTER"/>
+<entry key="borderSize" type="xint" value="0"/>
+<entry key="borderColor" type="xint" value="16777215"/>
+<entry key="defFontSize" type="xint" value="9"/>
+<entry key="annotation-version" type="xint" value="20151123"/>
+<config key="styles"/>
+</config>
+<entry key="customDescription" type="xstring" isnull="true" value=""/>
+<entry key="state" type="xstring" value="EXECUTED"/>
+<entry key="factory" type="xstring" value="org.knime.r.RViewNodeFactory"/>
+<entry key="node-name" type="xstring" value="R View (Table)"/>
+<entry key="node-bundle-name" type="xstring" value="KNIME R-Project nodes"/>
+<entry key="node-bundle-symbolic-name" type="xstring" value="org.knime.r"/>
+<entry key="node-bundle-vendor" type="xstring" value="KNIME AG, Zurich, Switzerland"/>
+<entry key="node-bundle-version" type="xstring" value="4.3.1.v202101261634"/>
+<entry key="node-feature-name" type="xstring" value="KNIME Interactive R Statistics Integration"/>
+<entry key="node-feature-symbolic-name" type="xstring" value="org.knime.features.r.feature.group"/>
+<entry key="node-feature-vendor" type="xstring" value="KNIME AG, Zurich, Switzerland"/>
+<entry key="node-feature-version" type="xstring" value="4.3.1.v202101261634"/>
+<config key="factory_settings"/>
+<entry key="name" type="xstring" value="R View (Table)"/>
+<entry key="hasContent" type="xboolean" value="true"/>
+<entry key="isInactive" type="xboolean" value="false"/>
+<config key="ports">
+<config key="port_1">
+<entry key="index" type="xint" value="1"/>
+<entry key="port_spec_class" type="xstring" value="org.knime.core.node.port.image.ImagePortObjectSpec"/>
+<entry key="port_object_class" type="xstring" value="org.knime.core.node.port.image.ImagePortObject"/>
+<entry key="port_object_summary" type="xstring" value="PNG Image 640 x 640 with 4 KB"/>
+<entry key="port_spec_location" type="xstring" value="spec/spec.zip"/>
+<entry key="port_object_location" type="xstring" value="object/portobject.zip"/>
+<entry key="port_dir_location" type="xstring" value="port_1"/>
+</config>
+</config>
+<config key="filestores">
+<entry key="file_store_location" type="xstring" isnull="true" value=""/>
+<entry key="file_store_id" type="xstring" value="b148703f-99f9-4efb-8519-afe100ea236a"/>
+</config>
+</config>
